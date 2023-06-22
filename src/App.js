@@ -1,19 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
 
-const App = () => {
-  const fetchData = () => {
-    fetch("https://test-static-webapp.azurewebsites.net/api/Function1")
-      .then((res) => res.json())
-      .then()
-      .catch();
-  };
+function App() {
+  const [data, setData] = useState('');
 
-  return (
-    <div>
-      <button onClick={fetchData}>Fetch Data</button>
-    </div>
-  );
-};
+  useEffect(() => {
+    (async function () {
+      const { text } = await( await fetch(`api/HttpTrigger1`)).json();
+      setData(text);
+    })();
+  });
+
+  return <div>{data}</div>;
+}
 
 export default App;
