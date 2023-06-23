@@ -17,7 +17,7 @@ namespace Company.Function
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            string responseMessage = "Hello World";
+            string responseMessage = "Hello I am HttpTrigger1";
 
             return new OkObjectResult(responseMessage);
         }
