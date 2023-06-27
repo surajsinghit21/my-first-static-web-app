@@ -18,7 +18,7 @@ namespace Company.Function
     {
         [FunctionName("HttpTrigger2")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
                             ClaimsPrincipal user = AuthParse(req);
